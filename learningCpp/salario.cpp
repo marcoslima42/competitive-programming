@@ -10,6 +10,7 @@ float ajuste(int index, float x){
 }
 
 void imprimir(int index, float x){
+    //cout << fixed << setprecision(2);
     cout<<"Novo salario: "<<fixed<<setprecision(2)<<x+ajuste(index, x)<<endl;
     cout<<"Reajuste ganho: "<<fixed<<setprecision(2)<<ajuste(index, x)<<endl;
     cout<<"Em percentual: "<<percentual[index]<<" %"<<endl;
