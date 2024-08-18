@@ -1,5 +1,7 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
+
 #define ordem 12
 
 int main(){
@@ -18,6 +20,6 @@ int main(){
         printf("%.1f\n", soma);
     else
         printf("%.1f\n", soma/12);
-    
+    //cout<<fixed<<setprecision(1)<<soma<<endl;
     return 0;
 }
