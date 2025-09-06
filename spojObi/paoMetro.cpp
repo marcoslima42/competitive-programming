@@ -39,7 +39,7 @@ int main(){
         m.push_back(x);
     }
 
-    int low=0, high,mid;
+    int low=0, high,mid, resp=-1;
     auto it=max_element(m.begin(), m.end());
     high = *it;
 
@@ -47,13 +47,14 @@ int main(){
         mid=(low+high)/2;
         if(test(mid)>=k){
             low=mid+1;
+            resp = mid;
         }
         else{
             high=mid-1;
         }
     }
 
-    cout<<mid-1<<endl;
+    cout<<resp<<endl;
 
     return 0;
 }
