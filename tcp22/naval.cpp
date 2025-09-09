@@ -1,9 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <utility>
+#include <bits/stdc++.h>
 
 #define REP(i, a, b) for(int i=a; i<b; i++)
-#define _ ios_base::sync_with_stdio(0); cin.tie(0);
+#define _ ios_base::sync__with_stdio(0); cin.tie(0);
 
 typedef long long ll;
 const int INF = 0x3f3f3f3f;
@@ -11,54 +9,58 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 const int MAX = 1e8;
 const int MOD = 1e9+7;
 #define endl "\n"
-#define f first
-#define s second
-#define pb push_back
-
 
 using namespace std;
+vector<vector<bool>> m(11, vector<bool>(11, false));
+int n, dir, tam, x, y;
 
-vector<pair<int, int>> navio(10);
-vector<pair<int, int>> posi(10);
+bool preencher(){
+    //preencher
+    if(dir){ //vertical
 
-int main() {
-    int n;
-    cin >> n;
-
-    // tabuleiro 11x11 (para usar índices de 1..10)
-    vector<vector<int>> tab(11, vector<int>(11, 0));
-
-    for (int i = 0; i < n; i++) {
-        int D, L, R, C;
-        cin >> D >> L >> R >> C;
-
-        if (D == 0) { // horizontal
-            if (C + L - 1 > 10) { // passa da borda
-                cout << "N\n";
-                return 0;
-            }
-            for (int k = 0; k < L; k++) {
-                if (tab[R][C+k] == 1) { // já ocupado
-                    cout << "N\n";
-                    return 0;
+        REP(j, 0, tam){
+            
+            if((j+x<=10 && j+x>=1) && (y<=10 && y>=1)){
+                if(m[j+x][y]==true)
+                    return true;
+                else{
+                    m[j+x][y]=true;
                 }
-                tab[R][C+k] = 1;
             }
-        } else { // vertical
-            if (R + L - 1 > 10) { // passa da borda
-                cout << "N\n";
-                return 0;
-            }
-            for (int k = 0; k < L; k++) {
-                if (tab[R+k][C] == 1) { // já ocupado
-                    cout << "N\n";
-                    return 0;
+            else
+                return true;
+        }
+    }
+    else{
+        REP(j, 0, tam){
+            if((j+y<=10 && j+y>=1) && (x<=10 && x>=1)){
+                if(m[x][j+y]==true)
+                    return true;
+                else{
+                    m[x][j+y]=true;
                 }
-                tab[R+k][C] = 1;
             }
+            else 
+                return true;
+        }
+    }
+    return false;
+}
+
+int main(){
+    cin>>n;
+    int chocou=false;
+
+    REP(i, 0, n){
+        cin>>dir>>tam>>x>>y;
+        
+        if(preencher()){
+            chocou=true;
+            break;
         }
     }
 
-    cout << "Y\n"; // se todos couberam e não houve colisão
+    if(!chocou)  cout<<"Y"<<endl;
+    else    cout<<"N"<<endl;
     return 0;
 }
