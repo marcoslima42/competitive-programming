@@ -10,7 +10,7 @@ int main(){
     int size = diff.size();
 
     //setar no inicio do intervalo
-    diff[1] += v;
+    diff[start] += v;
     //setar no fim do intervalo 
     if(end + 1 < size)
         diff[end + 1] -= v;
