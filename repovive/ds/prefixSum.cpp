@@ -26,7 +26,7 @@ int main(){
     NumArray obj(arr);
     
 
-    for(auto x : obj.prefix){a
+    for(auto x : obj.prefix){
         cout << x << " ";
     }
 

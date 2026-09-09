@@ -5,18 +5,19 @@ using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
-        vector<int> index;
         int left = 0; int right = numbers.size() - 1;
+
         while(left < right){
+            int sum = numbers[left] + numbers[right];
             
-            if(numbers[left] + numbers[right] < target){
+            if(sum == target){
+                return {left, right};                    
+            }
+            else if(sum < target){
                 left++;
             }
-            else if(numbers[left] + numbers[right] > target){
-                right--;
-            }
             else{
-                return {++left, ++right};                    
+                right--;
             }
         }
 
