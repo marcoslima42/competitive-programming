@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/maximum-average-subarray-i/
+
 #include <bits/stdc++.h>
 
 using namespace std;

@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/range-sum-query-2d-immutable/submissions/2136908816/
+
 #include <bits/stdc++.h>
 
 using namespace std;
